@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- was xmlns="http://schemas.microsoft.com/office/2006/01/customui" changed 26/7/22 -->
+<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui" onLoad="Ribbon_Load" loadImage="GetButtonImages">
+    <ribbon>
+        <tabs>
+            <tab idMso="TabAddIns" label="Equations #">
+                <group id="InsertEquations" label="Add Equations" image="InsEquation">
+                    <buttonGroup id="ButtonGroup5">
+                        <button id="btnInsEq2" onAction="BtnInsEq2_Click" getEnabled="onGetEnabled1" image="InsEquation2"  screentip="Insert numbered equation, 2 columns"/>
+						<button id="btnInsEq3" onAction="BtnInsEq3_Click" getEnabled="onGetEnabled1" image="InsEquation3" screentip="Insert numbered equation, 3 columns"/>
+					</buttonGroup>
+                    <buttonGroup id="ButtonGroup4">
+                        <button id="btnInsEqInLine" onAction="BtnInsEqInLine_Click" getEnabled="onGetEnabled2" image="InsEquationInLine" screentip="Insert Equation in line"/>
+                        <button id="btnInsEqNewLine" onAction="BtnInsEqNewLine_Click" getEnabled="onGetEnabled2" image="InsEquationNewLine" screentip="Insert equation no numbering on empty line"/>
+                    </buttonGroup>
+                </group>
+                <group id="Adornments" label="Adornments" image="Adornments">
+                    <buttonGroup id="ButtonGroup3">
+                        <button id="btnInsertTick" onAction="BtnInsertTick_Click" image="InsertTick" screentip="Approve work with ✓"/>
+                        <button id="ButtonInsertCross" onAction="ButtonInsertCross_Click" image="InsertCross" screentip="Disapprove work with ✘"/>
+                    </buttonGroup>
+                    <buttonGroup id="ButtonGroup2">
+                        <button id="btnTextBlack" onAction="BtnTextBlack_Click" getEnabled="onGetEnabled3" image="HilightBlack" screentip="Black text (equation or normal text)"/>
+                        <button id="btnTextRed" onAction="BtnTextRed_Click" getEnabled="onGetEnabled3" image="HilightRed" screentip="Red text (equation or normal text)"/>
+                        <button id="BtnTextGreen" onAction="BtnTextGreen_Click" getEnabled="onGetEnabled3" image="HilightGreen" screentip="Green text (equation or normal text)"/>
+                    </buttonGroup>
+                    <buttonGroup id="ButtonGroup1">
+                        <button id="BtnStrikeCross" onAction="BtnStrikeCross_Click" getEnabled="onGetEnabled4" image="StrikeCross" screentip="Strike out part of equation ×"/>
+                        <button id="BtnStrikeSlash" onAction="BtnStrikeSlash_Click" getEnabled="onGetEnabled4" image="StrikeSlash" screentip="Strike out part of equation /"/>
+                        <button id="BtnStrikeBackSlash" onAction="BtnStrikeBackSlash_Click" getEnabled="onGetEnabled4" image="StrikeBackSlash" screentip="Strike out part of equation \"/>
+                    </buttonGroup>
+                </group>
+                <group id="TableOps" label="Table Actions" image="Table">
+					<button id="BtnTableSelect" onAction="BtnTableSelect_Click" getEnabled="onGetEnabled5" image="TableSelect" screentip="Select whole table"/>
+					<button id="BtnTableBordersAll" onAction="BtnTableBordersAll_Click" getEnabled="onGetEnabled5" image="TableBordersOn" screentip="Draw all borders for table"/>
+					<button id="BtnTableRowsToggle" onAction="BtnTableRowsToggle_Click" getEnabled="onGetEnabled5" image="TableRowsBigSmall" screentip="Make selected rows fat / thin"/>
+					<button id="BtnTableBordersOne" onAction="BtnTableBordersOne_Click" getEnabled="onGetEnabled5" image="TableBordersOne" screentip="One bold border round whole table"/>
+                    <button id="BtnTableBordersNone" onAction="BtnTableBordersNone_Click" getEnabled="onGetEnabled5" image="TableBordersOff" screentip="Remove all borders from table"/>
+                </group>
+                <group id="Transformers" label="Transformers" image="Transformers">
+                    <button id="BtnWriteLatex" onAction="BtnWriteLatex_Click" label="To web" screentip="Convert document to plain text and latex. Suitable for displaying on web page."/>
+                    <button id="BtnRenumber" onAction="BtnRenumber_Click" label="Renumber" screentip="Renumber all equations, maintaining references"/>
+					<button id="BtnExpand" onAction="BtnExpand_Click" label="Expand" getEnabled="onGetEnabled6" screentip="Expand Covariant derivative ∇, Christoffel symbol Γ, Riemann tensor R"/>
+					<button id="BtnTest" onAction="BtnTest" label="Test" screentip="Test something!" visible="false"/>
+				</group>
+				<group id ="Christoffel" label="Christoffel" image="Christoffel">
+					<box id ="BoxChr1" boxStyle="vertical">
+						<button id="BtnCoordinates" onAction="BtnCoordinates_Click" label="Coordinates" getEnabled="onGetEnabled6" screentip="Pick up coordinates from list in equation."/>
+						<button id="BtnMetric" onAction="BtnMetric_Click" label="Metric" getEnabled="onGetEnabled6" screentip="Pick up metric from matrix in equation or line element equation."/>
+						<button id="BtnInvMetric" onAction="BtnInvMetric_Click" label="Inv. Metric" getEnabled="onGetEnabled6" screentip="Pick up inverse metric from matrix in equation."/>
+					</box>
+					<box id ="BoxChr2" boxStyle="vertical">
+						<labelControl id="Coords" getLabel="ShowCoords"/>
+						<labelControl id="Metric" getLabel="ShowMetric"/>
+						<labelControl id="Inv.Metric" getLabel="ShowInvMetric"/>
+					</box>
+					<button id="BtnWriteMetrics" onAction="BtnWriteMetrics_Click" label="Write Metrics" getEnabled="onGetEnabled6" screentip="Write metrics as matrices at insertion point in equation."/>
+					<button id="BtnWriteChris" onAction="BtnWriteChris_Click" label="Write Γs" getEnabled="onGetEnabled1" screentip="Write out each Christoffel symbol component at insetion point using metrics provided."/>
+					<button id="BtnClearMetric" onAction="BtnClearMetric_Click" label="Clear" screentip="Clear saved metrics and coordinates."/>
+				</group>
+				<group id="Messages" label="Messages" image="TLightRed">
+					<box id ="Box1" boxStyle="horizontal">
+						<checkBox id="EqCheckBox" onAction="BeepsCheck" label="Beeps" getPressed="BeepsSet"/>
+						<button id ="TrafficLight" getImage="SetTrafficLight"/>
+					</box>
+					<labelControl id="EqMessage" getLabel="UpdateMessage"/>
+				</group>
+            </tab>
+        </tabs>
+    </ribbon>
+</customUI>
